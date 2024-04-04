@@ -8,7 +8,7 @@ def output_console(text: str):
     Returns:
         None
     """
-    pass
+    print(text)
 
 
 def write_file(path: str, content: str):
@@ -23,6 +23,8 @@ def write_file(path: str, content: str):
         None
 
     Raises:
+        FileNotFoundError: If the file does not exist
         IOError - If the file does not exist or some IO error happen
     """
-    pass
+    with open(path, 'w') as file:
+        file.write(content)

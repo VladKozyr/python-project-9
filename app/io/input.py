@@ -8,7 +8,7 @@ def input_text() -> str:
     Returns:
         str: The text entered by the user from the console.
     """
-    pass
+    return input("Enter text: ")
 
 
 def read_file(path: str) -> str:
@@ -24,10 +24,15 @@ def read_file(path: str) -> str:
     Raises:
         FileNotFoundError - If the file does not exist
     """
-    pass
+    try:
+        with open(path, 'r') as file:
+            content = file.read()
+        return content
+    except FileNotFoundError:
+        return "File not found."
 
 
-def read_file_pandas(path: str) -> pd.DataFrame:
+def read_file_pandas(path: str) -> pd.DataFrame | None:
     """
     Function to read content from a file using the pandas library.
 
@@ -40,4 +45,8 @@ def read_file_pandas(path: str) -> pd.DataFrame:
     Raises:
         FileNotFoundError - If the file does not exist
     """
-    pass
+    try:
+        df = pd.read_csv(path)
+        return df
+    except FileNotFoundError:
+        return None
