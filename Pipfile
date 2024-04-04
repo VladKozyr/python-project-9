@@ -7,6 +7,8 @@ name = "pypi"
 black = "*"
 matplotlib = "*"
 pylint = "*"
+numpy = "*"
+pandas = "*"
 
 [dev-packages]
 
